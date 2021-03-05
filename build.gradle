@@ -19,6 +19,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
+
 	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: "${spring_swagger_version}"
 
 }
