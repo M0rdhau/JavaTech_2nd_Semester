@@ -1,10 +1,10 @@
-package ee.ttu.cs.team12jakarta.project2.controller1;
+package ee.ttu.cs.team12jakarta.project2.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CalculatorOne {
+public class Calculator {
 
     @GetMapping(value = "/")
     public String index(){
