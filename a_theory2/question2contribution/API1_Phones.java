@@ -34,7 +34,8 @@ public class API1_Phones {
     @GetMapping(value = "/")
     public List<Phone> allphones(){ return phoneService.getAllPhones() }
 
-    @GetMapping(value = "/phone/")
+    //assuming phoneService will convert the id to Long in the method
+    @GetMapping(value = "/phone")
     public Phone phoneById(@RequestParam String id){ return phoneService.getPhoneById(id) }
 
     @Getmapping(value = "/manufacturer")
@@ -42,9 +43,29 @@ public class API1_Phones {
         return allphones().stream().filter(each -> each.manufacturer == manufacturer).collect(Collectors.toList());
     }
 
+    @Getmapping(value = "/year")
+    public List<Phone> phonesByYear(@RequestParam String year){
+        return allphones().stream().filter(each -> each.releaseYear == year).collect(Collectors.toList());
+    }
+
 
     //todo theoretical assignment
     // F write pseudocode for saving a new phone (add annotations or http method names, urls, necessary parameters)
+    //  Assuming that JSON list will automatically get converted to local dto
+    //  @Postmapping(value = "/")
+    //  public Phone addPhone(@RequestParam Phone phone){
+    //    return phoneService.addPhone(phone);
+    //   }
     // G write pseudocode for updating existing phone (add annotations or http method names, urls, necessary parameters)
+    //  phoneService finds the phone listing by updatePhone.id in the database and updates it
+    //  @Putmapping(value = "/phone")
+    //  public Phone updatePhone(@RequestParam Phone updatedPhone){
+    //      return phoneService.updatePhone(updatedPhone);
+    //  }
     // H write pseudocode for deleting a phone (add annotations or http method names, urls, necessary parameters)
+    //  need to respond with "200 - OK" on deletion or "400 - BAD REQUEST" if phone is not found
+    //  @Deletemapping(value = "/phone")
+    //  public Response deletePhone(@RequestParam String id){
+    //      return phoneService.deletePhone(id);
+    //  }
 }
