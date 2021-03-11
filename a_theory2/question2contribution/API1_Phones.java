@@ -6,7 +6,7 @@ import ee.ttu.cs.team12jakarta.project2.theory.classes.Phone;
 import java.util.List;
 
 @RestController
-@RequestMapping("phones")
+@RequestMapping("phones/API")
 public class API1_Phones {
 
     // todo this is contribution question
@@ -31,22 +31,15 @@ public class API1_Phones {
     @Autowired
     private PhoneService phoneService;
 
-    @GetMapping(value = "/")
-    public List<Phone> allphones(){ return phoneService.getAllPhones() }
+    //Assuming that phoneService will handle empty strings
+    @GetMapping(value = "/all")
+    public List<Phone> allphones(@RequestParam String manufacturer, @RequestParam String year){
+        return phoneService.getAllPhones(manufacturer.orElse(""), year.orElse(""))
+    }
 
     //assuming phoneService will convert the id to Long in the method
     @GetMapping(value = "/phone")
     public Phone phoneById(@RequestParam String id){ return phoneService.getPhoneById(id) }
-
-    @Getmapping(value = "/manufacturer")
-    public List<Phone> phonesByManufacturer(@RequestParam String manufacturer){
-        return allphones().stream().filter(each -> each.manufacturer == manufacturer).collect(Collectors.toList());
-    }
-
-    @Getmapping(value = "/year")
-    public List<Phone> phonesByYear(@RequestParam String year){
-        return allphones().stream().filter(each -> each.releaseYear == year).collect(Collectors.toList());
-    }
 
 
     //todo theoretical assignment

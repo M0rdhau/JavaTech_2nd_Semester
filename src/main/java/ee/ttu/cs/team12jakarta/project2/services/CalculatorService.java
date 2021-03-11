@@ -10,15 +10,15 @@ import java.util.stream.Collectors;
 @Service
 public class CalculatorService {
 
-    public CalculatorResult calculateOne(List<Integer> input){
+    public CalculatorResult calculateOne(List<Integer> input) {
         List<Integer> nullInput = input.stream().filter(e -> e == null).collect(Collectors.toList());
-        if(nullInput.isEmpty() && !input.isEmpty()){
+        if (nullInput.isEmpty() && !input.isEmpty()) {
             CalculatorResult res = new CalculatorResult();
             res.setMaxOdd(CalcUtils.maxOdd(input));
             res.setSum(CalcUtils.sum(input));
             res.setAbsolutes(CalcUtils.absolutes(input));
             return res;
-        }else{
+        } else {
             return null;
         }
     }

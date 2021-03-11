@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class CalcUtilsTest {
 
     @Test
-    void maxOddTest(){
+    void maxOddTest() {
         assertNull(CalcUtils.maxOdd(List.of()));
         assertNull(CalcUtils.maxOdd(null));
         assertNull(CalcUtils.maxOdd(List.of(0)));
@@ -23,7 +23,7 @@ public class CalcUtilsTest {
     }
 
     @Test
-    void sumTest(){
+    void sumTest() {
         assertNull(CalcUtils.sum(List.of()));
         assertNull(CalcUtils.sum(null));
 
@@ -39,8 +39,8 @@ public class CalcUtilsTest {
         assertNull(CalcUtils.absolutes(null));
 
         assertEquals(List.of(0), CalcUtils.absolutes(List.of(0)));
-        assertEquals(List.of(1,2,3,4,5), CalcUtils.absolutes(List.of(-1,2,-3,4,-5)));
-        assertEquals(List.of(1,2,3,4,5), CalcUtils.absolutes(List.of(1,2,3,4,5)));
+        assertEquals(List.of(1, 2, 3, 4, 5), CalcUtils.absolutes(List.of(-1, 2, -3, 4, -5)));
+        assertEquals(List.of(1, 2, 3, 4, 5), CalcUtils.absolutes(List.of(1, 2, 3, 4, 5)));
         assertEquals(List.of(0, 5, 10, 20), CalcUtils.absolutes(List.of(0, -5, 10, -20)));
     }
 }
