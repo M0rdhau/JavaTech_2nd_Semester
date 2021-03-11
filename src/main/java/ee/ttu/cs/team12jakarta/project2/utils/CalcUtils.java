@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 @Service
 public class CalcUtils {
 
-    //todo: write code for utils
     public static Integer maxOdd(List<Integer> input){
         try{
             return input.stream().filter(num -> num % 2 != 0).max(Integer::compareTo).get();
