@@ -22,7 +22,7 @@ public class Calculator {
         return "Hello from the other side";
     }
 
-    @GetMapping(value = "/calculate1")
+    @GetMapping(value = "/calculate1", produces = "application/json")
     public CalculatorResult calculate1(@RequestParam List<Integer> input){
         return calcService.calculateOne(input);
     }
