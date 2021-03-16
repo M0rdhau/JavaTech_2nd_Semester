@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 @RestController
@@ -22,13 +21,11 @@ public class Calculator {
         return "Hello from the other side";
     }
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @GetMapping(value = "/calculate1", produces = "application/json")
     public CalculatorResult calculate1(@RequestParam List<Integer> input) {
         return calcService.calculateOne(input);
     }
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @GetMapping(value = "/calculate2", produces = "application/json")
     public CalculatorResult calculate2(@RequestParam List<Integer> input) {
         return calcService.calculateTwo(input);
