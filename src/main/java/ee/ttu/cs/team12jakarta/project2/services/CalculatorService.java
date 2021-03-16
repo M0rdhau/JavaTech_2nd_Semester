@@ -12,12 +12,12 @@ public class CalculatorService {
 
     public CalculatorResult calculateOne(List<Integer> input) {
         List<Integer> nullInput = input.stream().filter(e -> e == null).collect(Collectors.toList());
-        if (nullInput.isEmpty() && !input.isEmpty()) {
-            CalculatorResult res = new CalculatorResult();
-            res.setMaxOdd(CalcUtils.maxOdd(input));
-            res.setSum(CalcUtils.sum(input));
-            res.setAbsolutes(CalcUtils.absolutes(input));
-            return res;
+        if (nullInput.isEmpty() && !input.isEmpty()) {            
+            return CalculatorResult.builder()
+                                   .maxOdd(CalcUtils.maxOdd(input))
+                                   .sum(CalcUtils.sum(input))
+                                   .absolutes(CalcUtils.absolutes(input))
+                                   .build();
         } else {
             return null;
         }
@@ -27,8 +27,9 @@ public class CalculatorService {
         List<Integer> nullInput = input.stream().filter(e -> e == null).collect(Collectors.toList());
         if (nullInput.isEmpty() && !input.isEmpty()) {
             return CalculatorResult.builder()
-                                   .averageOfEven(CalculatorService.averageOfEven(input))
-                                   .absolutes(CalculatorService.absolutes(input))
+                                   .positives(CalcUtils.positives(input))
+                                   .averageOfEven(CalcUtils.averageOfEven(input))
+                                   .absolutes(CalcUtils.absolutes(input))
                                    .build();
         } else {
             return null;
