@@ -26,4 +26,9 @@ public class Calculator {
     public CalculatorResult calculate1(@RequestParam List<Integer> input) {
         return calcService.calculateOne(input);
     }
+
+    @GetMapping(value = "/calculate2", produces = "application/json")
+    public CalculatorResult calculate2(@RequestParam List<Integer> input) {
+        return calcService.calculateTwo(input);
+    }
 }

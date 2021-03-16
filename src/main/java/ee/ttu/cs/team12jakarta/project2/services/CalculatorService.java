@@ -22,4 +22,16 @@ public class CalculatorService {
             return null;
         }
     }
+
+    public CalculatorResult calculateTwo(List<Integer> input) {
+        List<Integer> nullInput = input.stream().filter(e -> e == null).collect(Collectors.toList());
+        if (nullInput.isEmpty() && !input.isEmpty()) {
+            return CalculatorResult.builder()
+                                   .averageOfEven(CalculatorService.averageOfEven(input))
+                                   .absolutes(CalculatorService.absolutes(input))
+                                   .build();
+        } else {
+            return null;
+        }
+    }
 }
