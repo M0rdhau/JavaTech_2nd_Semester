@@ -36,11 +36,30 @@ public class CalcUtilsTest {
     @Test
     void absolutesTest() {
         assertNull(CalcUtils.absolutes(List.of()));
-        assertNull(CalcUtils.absolutes(null));
 
         assertEquals(List.of(0), CalcUtils.absolutes(List.of(0)));
         assertEquals(List.of(1, 2, 3, 4, 5), CalcUtils.absolutes(List.of(-1, 2, -3, 4, -5)));
         assertEquals(List.of(1, 2, 3, 4, 5), CalcUtils.absolutes(List.of(1, 2, 3, 4, 5)));
         assertEquals(List.of(0, 5, 10, 20), CalcUtils.absolutes(List.of(0, -5, 10, -20)));
+    }
+
+
+    @Test
+    void positivesTest() {
+        assertNull(CalcUtils.positives(List.of()));
+
+        assertNull(CalcUtils.positives(List.of(0)));
+        assertEquals(List.of(5, 6, 10), CalcUtils.positives(List.of(-5, -6, 5, 6, -10, 10)));
+        assertEquals(List.of(5), CalcUtils.positives(List.of(5)));
+
+        assertEquals(List.of(5, 25, 40, 18, 12), CalcUtils.positives(List.of(5, 25, 40, 18, 12)));
+    }
+
+    @Test
+    void averageOfEvensTest() {
+        assertEquals(Double.NaN, CalcUtils.averageOfEven(List.of()));
+        assertEquals(0, CalcUtils.averageOfEven(List.of(0)));
+        assertEquals(2, CalcUtils.averageOfEven(List.of(2, 2)));
+        assertEquals(3, CalcUtils.averageOfEven(List.of(1, 2, 3, 4, 5)));
     }
 }

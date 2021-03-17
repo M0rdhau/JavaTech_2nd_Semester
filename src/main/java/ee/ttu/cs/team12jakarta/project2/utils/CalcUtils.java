@@ -23,7 +23,7 @@ public class CalcUtils {
         return collectedList;
     }
 
-    private static Collection<Integer> nullIfEmpty(Collection<Integer> collection) {
+    private static List<Integer> nullIfEmpty(List<Integer> collection) {
         if (collection == null || collection.isEmpty()) return null;
         return collection;
     }
@@ -33,7 +33,9 @@ public class CalcUtils {
     }
 
     public static Double averageOfEven(List<Integer> input) {
-        return input.stream().filter(num -> num % 2 == 0).average().orElse(null);
-
+        return input.stream()
+                    .filter(num -> num % 2 == 0)
+                    .mapToDouble(num -> num)
+                    .average().orElse(Double.NaN);
     }
 }
