@@ -26,7 +26,7 @@ public class FirstCalculatorTest {
     @Test
     @DisplayName("First mock test")
     void testRoot() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/"))
+        mvc.perform(MockMvcRequestBuilders.get("/calculator/"))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(content().string("Hello from the other side"));
     }
