@@ -17,13 +17,13 @@ public class Gradle {
     // Answer: Gradle wrapper is a script that runs Gradle tasks with a specified version and settings.
     // It doesn’t require the installation of the Gradle. When the Gradle with the wrapper is invoked,
     // it automatically downloads and builds the specified version.
-    //The use of Gradle wrapper is to check if the user has installed the right version or not.
+    // The use of Gradle wrapper is to check if the user has installed the right version or not.
 
     //todo C
     // Name 3 different benefits or reasons for using gradle
     // 1 It lets us synchronize code between packages
     // 2 It offers scalable and high-performance builds.
-    // 3 It supports dependency management.
+    // 3 It Automates the building process.
 
     //todo D
     // Name at least 1 alternative to gradle
